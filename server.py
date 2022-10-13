@@ -1,4 +1,4 @@
-from flask import *
+from flask import Flask
 from flask import Api, Resource, reqparse
 
 import config

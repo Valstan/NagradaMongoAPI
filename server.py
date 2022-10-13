@@ -1,36 +1,55 @@
 from flask import Flask
 from flask import Api, Resource, reqparse
 
+import config
+from get_mongo_base import get_mongo_base
+
 app = Flask(__name__)
 api = Api()
 
-parser = reqparse.RequestParser()
+base = get_mongo_base(config.nagrada_base)
+
+'''parser = reqparse.RequestParser()
 parser.add_argument("name", type=str)
-parser.add_argument("videos", type=int)
+parser.add_argument("videos", type=int)'''
 
 
 class Main(Resource):
-    def get(self, course_id):
-        if course_id == 0:
-            return courses
-        else:
-            return courses[course_id]
+    def get(self, prompt):
+        try:
+            if not prompt:
+                return base
+            else:
+                collection = base[prompt['collection']]
+                return collection.find_one({'title': prompt['name_table']})
+        except:
+            return "400"
 
-    def delete(self, course_id):
-        del courses[course_id]
-        return courses
+    def delete(self, prompt):
 
-    def post(self, course_id):
-        courses[course_id] = parser.parse_args()
-        return courses
+        return "200"
 
-    def put(self, course_id):
-        courses[course_id] = parser.parse_args()
-        return courses
+    def post(self, prompt):
+        try:
+            collection = base[prompt['collection']]
+            collection.update_one({'title': prompt['name_table']},
+                                  {'$set': prompt['table']}, upsert=True)
+            return "200"
+        except:
+            return "400"
+
+    def put(self, prompt):
+        try:
+            collection = base[prompt['collection']]
+            collection.update_one({'title': prompt['name_table']},
+                                  {'$set': prompt['table']}, upsert=True)
+            return "200"
+        except:
+            return "400"
 
 
-api.add_resource(Main, "/api/courses/<int:course_id>")
+api.add_resource(Main, "/nagrada")
 api.init_app(app)
 
 if __name__ == "__main__":
-    app.run(debug=True, port=3012, host="http://ovz3.id45d.pq4yn.vps.myjino.ru")
+    app.run(debug=True, port=config.port, host=config.host)

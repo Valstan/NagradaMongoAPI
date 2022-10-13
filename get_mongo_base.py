@@ -7,7 +7,7 @@ import config
 from send_error import send_error
 
 
-def get_mongo_base(base='dom'):
+def get_mongo_base(base):
     for i in range(3):
         try:
             client = MongoClient(config.MONGO_URI)

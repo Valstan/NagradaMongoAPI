@@ -1,2 +1,2 @@
-# PostopusMongoAPI
-REST API for POSTOPUS
+# NagradaMongoAPI
+REST API for NAGRADA

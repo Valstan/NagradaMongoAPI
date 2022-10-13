@@ -1,5 +1,5 @@
 from flask import Flask
-from flask import Api, Resource, reqparse
+from flask_restful import Api, Resource, reqparse
 
 import config
 from get_mongo_base import get_mongo_base

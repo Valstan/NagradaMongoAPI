@@ -4,7 +4,7 @@ from flask_restful import Api, Resource, reqparse
 import config
 from get_mongo_base import get_mongo_base
 
-app = Flask(__name__)
+app = Flask('NagradaMongoAPI')
 api = Api()
 
 base = get_mongo_base(config.nagrada_base)
@@ -14,7 +14,7 @@ parser.add_argument("name", type=str)
 parser.add_argument("videos", type=int)'''
 
 
-class Main(Resource):
+class ApiMetods(Resource):
     def get(self, prompt):
         try:
             if not prompt:
@@ -48,7 +48,7 @@ class Main(Resource):
             return "400"
 
 
-api.add_resource(Main, "/nagrada")
+api.add_resource(ApiMetods, "/nagrada")
 api.init_app(app)
 
 if __name__ == "__main__":

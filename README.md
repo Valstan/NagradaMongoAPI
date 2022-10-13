@@ -1,2 +1,2 @@
 # PostopusMongoAPI
-Да все так и есть
+REST API for POSTOPUS

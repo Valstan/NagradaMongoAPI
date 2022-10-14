@@ -23,4 +23,4 @@ api.add_resource(ApiMetods, "/api/nagrada")
 api.init_app(app)
 
 if __name__ == "__main__":
-    app.run(debug=True, port=config.port, host='localhost')
+    app.run(debug=False, port=config.port, host='localhost')

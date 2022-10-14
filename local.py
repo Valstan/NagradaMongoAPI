@@ -1,19 +1,13 @@
 import requests
 
-res = requests.get("http://ovz3.id45d.pq4yn.vps.myjino.ru:3012/nagrada",
-                   {
-                       "collection": "papa",
-                       "name_table": "fio"
-                   })
+res = requests.post("http://localhost:3012/api/nagrada",
+                    json={"n_key": "post_field",
+                          "collection": "elisey",
+                          "table": "mashina",
+                          "body": {"mashine_name": "Лада", "kolesa": 5}})
 
-print(res.json())
-
-res = requests.post("http://ovz3.id45d.pq4yn.vps.myjino.ru:3012/nagrada",
-                    {
-                        "collection": "uliana",
-                        "name_table": "fio",
-                        "table": {"title": "fio",
-                                  "name": "Ульяна"}
-                    })
-
-print(res.json())
+print(res)
+try:
+    print(res.json())
+except Exception as exc:
+    print("Неверная строка запроса - ", exc)

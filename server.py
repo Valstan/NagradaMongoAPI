@@ -23,4 +23,6 @@ api.add_resource(ApiMetods, "/api/nagrada")
 api.init_app(app)
 
 if __name__ == "__main__":
-    app.run(debug=True, port=config.port, host='localhost')
+    from waitress import serve
+    serve(app, host="localhost", port=config.port)
+    # app.run(debug=True, port=config.port, host='localhost')

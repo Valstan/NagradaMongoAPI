@@ -24,5 +24,5 @@ api.init_app(app)
 
 if __name__ == "__main__":
     from waitress import serve
-    serve(app, host="localhost", port=config.port)
+    serve(app, host="0.0.0.0", port=config.port)
     # app.run(debug=True, port=config.port, host='localhost')

@@ -8,7 +8,7 @@ adapter = HTTPAdapter(max_retries=retry)
 session.mount('http://', adapter)
 # session.mount('https://', adapter)
 
-session.post("http://localhost:3052/api/nagrada",
+session.post("http://ovz3.id45d.pq4yn.vps.myjino.ru:49233/api/nagrada",
              json={"n_key": "post_field",
                    "collection": "vita",
                    "table": "mashina",

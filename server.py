@@ -1,28 +1,21 @@
-from flask import Flask, request
-from flask_restful import Api, Resource
+from flask import Flask
+from flask_restful import Api
 
 import config
-from utils.get_collection import get_collection
+from param.field import Field
+from param.table import Table
+from param.table_by_fields import TableByFields
 
-app = Flask('NagradaMongoAPI')
+app = Flask('NagradaAPI')
 api = Api()
 
-
-class ApiMetods(Resource):
-
-    def post(self):
-        prompt = request.get_json(force=True)
-
-        if prompt['n_key'] in "get_field get_table":
-            return get_collection(prompt)
-        if prompt['n_key'] in "post_field post_table":
-            return get_collection(prompt)
-
-
-api.add_resource(ApiMetods, "/api/nagrada")
+api.add_resource(Table, "/<string:collection_name>/<string:table_name>")
+api.add_resource(Field, "/<string:collection_name>/<string:table_name>/<string:field_name>")
+api.add_resource(TableByFields, "/search/<string:collection_name>/<string:field_names>")
 api.init_app(app)
 
 if __name__ == "__main__":
-    from waitress import serve
-    serve(app, host="0.0.0.0", port=config.port)
-    # app.run(debug=True, port=config.port, host='localhost')
+    # from waitress import serve
+    # serve(app, host="0.0.0.0", port=config.port)
+
+    app.run(debug=True, port=config.port, host='localhost')

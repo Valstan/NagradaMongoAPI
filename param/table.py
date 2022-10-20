@@ -9,10 +9,10 @@ class Table(Resource):
 
     def get(self, collection_name, table_name):
         collection = nagrada_base[collection_name]
-        table = collection.find_one({'title': table_name})
+        table = collection.find_one({'title': table_name}, {"_id": 0})
         if not table:
             abort(404, message=f"Нет коллекции - {str(collection_name)} или нет таблицы - {str(table_name)}")
-        return json.dumps(table, sort_keys=True, indent=4, default=json_util.default)
+        return table
 
     def put(self, collection_name, table_name):
         collection = nagrada_base[collection_name]

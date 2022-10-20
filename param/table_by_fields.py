@@ -1,7 +1,5 @@
-from bson import json_util
-from flask import request
 from flask_restful import Resource, abort
-import json
+
 from utils.get_mongo_base import nagrada_base
 
 
@@ -11,13 +9,12 @@ class TableByFields(Resource):
         res_dict = dict((a, b)
                         for a, b in (element.split('=')
                                      for element in field_names.split(',')))
-        res_dict['_id'] = 0
 
         collection = nagrada_base[collection_name]
-        table = collection.find({}, res_dict)
+        table = collection.find(res_dict, {"_id": 0})
         if not table:
             abort(404, message=f"В коллекции - {str(collection_name)} нет таблиц с параметрами - {str(field_names)}")
-        return json.dumps(table, sort_keys=True, indent=4, default=json_util.default)
+        return [r for r in table]
 
     # def put(self, collection_name, table_name):
     #     collection = nagrada_base[collection_name]

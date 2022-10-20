@@ -8,7 +8,7 @@ class MongoPost(Resource):
         prompt = request.get_json(force=True)
 
         if command in "get_field get_table":
-            base = get_mongo_base(config.nagrada_base)
+            base = get_mongo_base(config.base_name)
             return get_collection(command, prompt)
         if command in "post_field post_table":
             return get_collection(command, prompt)

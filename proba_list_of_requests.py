@@ -42,9 +42,9 @@ def put_table():  # Создать новую ТАБЛИЦУ
 
 
 if __name__ == "__main__":
-    # URI = "http://ovz3.id45d.pq4yn.vps.myjino.ru:49253"
-    URI = "http://127.0.0.1:1941"
+    URI = "http://ovz3.id45d.pq4yn.vps.myjino.ru:49253"
+    # URI = "http://127.0.0.1:1941"
     # get_field()
     # put_table()
-    # get_table()
-    search_by_field()
+    get_table()
+    # search_by_field()

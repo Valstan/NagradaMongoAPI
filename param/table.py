@@ -1,7 +1,6 @@
-from bson import json_util
 from flask import request
 from flask_restful import Resource, abort
-import json
+
 from utils.get_mongo_base import nagrada_base
 
 

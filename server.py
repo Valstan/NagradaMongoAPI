@@ -15,7 +15,4 @@ api.add_resource(TableByFields, "/search/<string:collection_name>/<string:field_
 api.init_app(app)
 
 if __name__ == "__main__":
-    from waitress import serve
-
-    context = ('ovz3.id45d.pq4yn.vps.myjino.ru.crt', 'ovz3.id45d.pq4yn.vps.myjino.ru.key')
-    serve(app, host="0.0.0.0", port=config.port, context=context)
+    app.run(debug=True, port=config.port, host='0.0.0.0')

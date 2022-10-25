@@ -5,7 +5,8 @@ from urllib3.util.retry import Retry
 session = requests.Session()
 retry = Retry(connect=3, backoff_factor=0.5)
 adapter = HTTPAdapter(max_retries=retry)
-session.mount('http://', adapter)  # session.mount('https://', adapter)
+# session.mount('http://', adapter)
+session.mount('https://', adapter)
 
 
 def get_field():  # Получить поле из таблицы
@@ -41,10 +42,16 @@ def put_table():  # Создать новую ТАБЛИЦУ
     print(result.json())
 
 
+def get_prover():
+    result = session.get(f"{URI}/prover")
+    print(result.json())
+
+
 if __name__ == "__main__":
-    URI = "http://ovz3.id45d.pq4yn.vps.myjino.ru:49253"
+    URI = "https://ovz6.id45d.m61kn.vps.myjino.ru"
     # URI = "http://127.0.0.1:1941"
     # get_field()
     # put_table()
-    get_table()
+    # get_table()
+    get_prover()
     # search_by_field()

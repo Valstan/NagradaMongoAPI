@@ -44,11 +44,11 @@ def put_table():  # Создать новую ТАБЛИЦУ
 
 def get_prover():
     result = session.get(f"{URI}/prover")
-    print(result.json())
+    print(result, result.json())
 
 
 if __name__ == "__main__":
-    URI = "https://ovz6.id45d.m61kn.vps.myjino.ru"
+    URI = "https://nagradapi.store"
     # URI = "http://127.0.0.1:1941"
     # get_field()
     # put_table()

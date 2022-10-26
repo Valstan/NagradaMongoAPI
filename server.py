@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, jsonify
 from flask_restful import Api, Resource
 
 import config
@@ -13,7 +13,7 @@ api = Api()
 class Prover(Resource):
 
     def get(self):
-        return "Привет, я работаю!"
+        return jsonify("Привет, я работаю!")
 
 
 api.add_resource(Table, "/<string:collection_name>/<string:table_name>")

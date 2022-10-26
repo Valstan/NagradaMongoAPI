@@ -1,7 +1,8 @@
-import waitress
+from waitress import serve
 from flask import Flask, jsonify
 from flask_restful import Api, Resource
 
+import config
 from param.field import Field
 from param.table import Table
 from param.table_by_fields import TableByFields
@@ -24,5 +25,5 @@ api.add_resource(Prover, "/prover")
 api.init_app(app)
 
 if __name__ == "__main__":
-    waitress.serve(app, host="0.0.0.0", port=80)
+    serve(app, host="0.0.0.0", port=config.port)
     # app.run(debug=True, port=config.port, host='0.0.0.0')

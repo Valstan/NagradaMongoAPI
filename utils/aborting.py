@@ -17,3 +17,7 @@ def aborting(variant):
     elif variant == 4:
         abort(404,
               message=f"Отсутствует TOKEN - {str(request.args.get('token'))}")
+
+    elif variant == 5:
+        abort(404,
+              message=f"Такой ЛОГИН уже существует - {str(request.args.get('login'))}")

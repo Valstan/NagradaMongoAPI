@@ -52,7 +52,7 @@ class Nagrada(Resource):
             return greate_new_person()
         if token_verification():
 
-            return 'CONSTRAINED__________________________________________CONSTRAINED'
+            return f"Пример {parser.args['login']}"
 
         else:
             aborting(3)

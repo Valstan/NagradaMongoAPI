@@ -52,19 +52,19 @@ class Nagrada(Resource):
             return greate_new_person()
         if token_verification():
 
-            return f"Пример {parser.args['login']}"
+            return f"Put {parser.args['login']}"
 
         else:
             aborting(3)
 
     def post(self):
         if token_verification():
-            return 'CONSTRAINED__________________________________________CONSTRAINED'
+            return f"Post {parser.args['token']}"
         else:
             aborting(3)
 
     def delete(self):
         if token_verification():
-            return 'CONSTRAINED__________________________________________CONSTRAINED'
+            return f"Delete {parser.args['token']}"
         else:
             aborting(3)

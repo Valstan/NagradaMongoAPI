@@ -15,7 +15,7 @@ def get_field():  # Получить поле из таблицы
 
 
 def get_table():  # Получить таблицу
-    result = session.get(f"{URI}?token=4f3f347f4b7322fg4gg&res=table&fields=name=Валентин")
+    result = session.get(f"{URI}?res=table")
     print(result.json())
 
 
@@ -46,6 +46,6 @@ if __name__ == "__main__":
     URI = "https://nagradapi.store/nagrada/api"
     # URI = "http://127.0.0.1:1941"
     # get_field()
-    put_table()
-    # get_table()
+    # put_table()
+    get_table()
     # search_by_field()

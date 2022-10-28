@@ -3,6 +3,7 @@ from flask_restful import Api
 
 import config
 from param.field import Field
+from param.nagrada import Nagrada
 from param.table import Table
 from param.table_by_fields import TableByFields
 
@@ -13,6 +14,7 @@ api = Api()
 api.add_resource(Table, "/<string:collection_name>/<string:table_name>")
 api.add_resource(Field, "/<string:collection_name>/<string:table_name>/<string:field_name>")
 api.add_resource(TableByFields, "/search/<string:collection_name>/<string:field_names>")
+api.add_resource(Nagrada, "/nagrada/api")
 
 api.init_app(app)
 

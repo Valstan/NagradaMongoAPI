@@ -42,16 +42,10 @@ def put_table():  # Создать новую ТАБЛИЦУ
     print(result.json())
 
 
-def get_prover():
-    result = session.get(f"{URI}/prover")
-    print(result, result.json())
-
-
 if __name__ == "__main__":
     URI = "https://nagradapi.store"
     # URI = "http://127.0.0.1:1941"
     # get_field()
     # put_table()
-    # get_table()
-    get_prover()
+    get_table()
     # search_by_field()

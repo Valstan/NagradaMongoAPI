@@ -1,6 +1,6 @@
 from flask_restful import Resource
 
-from param.argument_parser import parser
+from server import parser
 from utils.aborting import aborting
 from utils.get_mongo_base import nagrada_base
 from utils.greate_new_person import greate_new_person

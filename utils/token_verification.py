@@ -1,7 +1,7 @@
 import hashlib
 import secrets
 
-from param.argument_parser import parser
+from server import parser
 from utils.aborting import aborting
 from utils.get_mongo_base import nagrada_base
 

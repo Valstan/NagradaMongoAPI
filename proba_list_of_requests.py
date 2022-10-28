@@ -32,11 +32,12 @@ def put_table():  # Создать новую ТАБЛИЦУ
                                "family": "Насрутдинов",
                                "avatar": "http://url.adress",
                                "birthdate": "1271065265",
-                               "fone": "79229699029",
-                               "e-mail": "vitalinasavinih@yandeх.ru",
-                               "password": "metro2000",
+                               "fone": "79229009090",
+                               "e-mail": "nasrutdin@yandeх.ru",
+                               "password": "vedro3000",
                                "config": {
-                                   "theme": "black"
+                                   "theme": "black",
+                                   "level": 0
                                }})
     print(result.json())
 
@@ -45,6 +46,6 @@ if __name__ == "__main__":
     URI = "https://nagradapi.store/nagrada/api"
     # URI = "http://127.0.0.1:1941"
     # get_field()
-    # put_table()
-    get_table()
+    put_table()
+    # get_table()
     # search_by_field()

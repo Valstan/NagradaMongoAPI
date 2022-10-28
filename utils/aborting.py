@@ -1,11 +1,13 @@
 from flask import request
 from flask_restful import abort
 
+from server import parser
+
 
 def aborting(variant):
     if variant == 1:
         abort(404,
-              message=f"Нет коллекции - {str(request.args.get('collection'))}"
+              message=f"Нет коллекции - {str(parser.args['collection'])}"
                       f" или нет таблиц - {str(request.args.get('fields'))}")
     elif variant == 2:
         abort(404,

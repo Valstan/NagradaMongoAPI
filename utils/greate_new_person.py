@@ -4,7 +4,7 @@ from secrets import token_urlsafe
 
 from flask import request
 
-from param.argument_parser import parser
+from server import parser
 from utils.aborting import aborting
 from utils.get_mongo_base import nagrada_base
 

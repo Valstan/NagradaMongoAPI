@@ -15,7 +15,7 @@ def get_field():  # Получить поле из таблицы
 
 
 def get_table():  # Получить таблицу
-    result = session.get(f"{URI}/persons/1")
+    result = session.get(f"{URI}?token=4f3f347f4b7322fg4gg&res=table&fields=name=Валентин")
     print(result.json())
 
 
@@ -27,10 +27,9 @@ def search_by_field():  # Поиск таблиц по полям таблицы
 
 
 def put_table():  # Создать новую ТАБЛИЦУ
-    result = session.put(f"{URI}/persons/2",
-                         json={"name": "Виталина",
-                               "family": "Савиных",
-                               "login": "VitaSav",
+    result = session.put(f"{URI}?token=greate_new_person&login=Nasrutdin",
+                         json={"name": "Асхат",
+                               "family": "Насрутдинов",
                                "avatar": "http://url.adress",
                                "birthdate": "1271065265",
                                "fone": "79229699029",
@@ -43,7 +42,7 @@ def put_table():  # Создать новую ТАБЛИЦУ
 
 
 if __name__ == "__main__":
-    URI = "https://nagradapi.store"
+    URI = "https://nagradapi.store/nagrada/api"
     # URI = "http://127.0.0.1:1941"
     # get_field()
     # put_table()

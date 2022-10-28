@@ -1,5 +1,4 @@
-from flask import request
-from flask_restful import Resource, abort
+from flask_restful import Resource
 
 from param.argument_parser import parser
 from utils.aborting import aborting

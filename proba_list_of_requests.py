@@ -5,7 +5,7 @@ from urllib3.util.retry import Retry
 session = requests.Session()
 retry = Retry(connect=3, backoff_factor=0.5)
 adapter = HTTPAdapter(max_retries=retry)
-# session.mount('http://', adapter)
+session.mount('http://', adapter)
 session.mount('https://', adapter)
 
 
@@ -15,7 +15,7 @@ def get_field():  # Получить поле из таблицы
 
 
 def get_table():  # Получить таблицу
-    result = session.get(f"{URI}?res=table")
+    result = session.get(f"{URI}/nagrada/api?res=table&coll=persons")
     print(result.json())
 
 
@@ -43,8 +43,8 @@ def put_table():  # Создать новую ТАБЛИЦУ
 
 
 if __name__ == "__main__":
-    URI = "https://nagradapi.store/nagrada/api"
-    # URI = "http://127.0.0.1:1941"
+    # URI = "https://nagradapi.store/nagrada/api"
+    URI = "http://127.0.0.1:1941"
     # get_field()
     # put_table()
     get_table()
